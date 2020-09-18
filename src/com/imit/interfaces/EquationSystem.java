@@ -15,4 +15,6 @@ public interface EquationSystem {
      */
     void addLineByCoefficient(int i, int j, double coefficient);
 
+    void printEquationSystem();
+
 }

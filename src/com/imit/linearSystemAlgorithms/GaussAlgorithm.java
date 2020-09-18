@@ -2,10 +2,7 @@ package com.imit.linearSystemAlgorithms;
 
 import com.imit.interfaces.Algorithm;
 
-import java.util.Arrays;
-
 import static com.imit.mathFunctions.StandartMathFunctions.isEqual;
-import static com.imit.mathFunctions.StandartMathFunctions.printMatrix;
 
 // TODO: Переделать метод решения, под задание в домике
 // TODO: Предусмотреть случай, когда система несовместна (ошибка решения)
@@ -121,7 +118,7 @@ public class GaussAlgorithm implements Algorithm {
     }
 
     public void printSlae(){
-        printMatrix(this.system.equationSystem);
+        this.system.printEquationSystem();
         System.out.println("--------------------------------------------------------\n");
     }
 }

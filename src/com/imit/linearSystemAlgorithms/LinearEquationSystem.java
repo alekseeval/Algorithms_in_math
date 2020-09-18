@@ -1,8 +1,7 @@
 package com.imit.linearSystemAlgorithms;
 
 import com.imit.interfaces.EquationSystem;
-
-import static com.imit.mathFunctions.StandartMathFunctions.isEqual;
+import com.imit.mathFunctions.StandartMathFunctions;
 
 // TODO: Разобрать возможные ошибки, выбрасываемые программой и обработать
 public class LinearEquationSystem implements EquationSystem {
@@ -81,12 +80,17 @@ public class LinearEquationSystem implements EquationSystem {
     public void addLineByCoefficient(int i, int j, double coefficient) {
 
         for (int k = 0; k < this.equationSystem[i].length; k++) {
-            if (isEqual(this.equationSystem[i][k], 0)){
+            if (StandartMathFunctions.isEqual(this.equationSystem[i][k], 0)){
                 continue;
             }
             this.equationSystem[j][k] += this.equationSystem[i][k]*coefficient;
         }
 
+    }
+
+    @Override
+    public void printEquationSystem() {
+        StandartMathFunctions.printMatrix(this.equationSystem);
     }
 
     public double[][] getEquationSystem() {

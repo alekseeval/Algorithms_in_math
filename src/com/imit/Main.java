@@ -1,12 +1,12 @@
 package com.imit;
 
+import com.imit.interfaces.Algorithm;
+import com.imit.interfaces.EquationSystem;
 import com.imit.linearSystemAlgorithms.GaussAlgorithm;
 import com.imit.linearSystemAlgorithms.LinearEquationSystem;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
-import static com.imit.mathFunctions.StandartMathFunctions.printMatrix;
 
 public class Main {
 
@@ -15,13 +15,13 @@ public class Main {
         int size = in.nextInt();
 
         LinearEquationSystem system = readLinearSystemFromConsole(size, in);
-        printMatrix(system.getEquationSystem()); // Print input data
-        GaussAlgorithm algorithm = new GaussAlgorithm(system);
+        system.printEquationSystem(); // Print input data
+        Algorithm algorithm = new GaussAlgorithm(system);
 
         double[] b = algorithm.getDecisionVector();
 
         System.out.println("-----------------------------------------------");
-        printMatrix(system.getEquationSystem());
+        system.printEquationSystem();
         System.out.println("\n Decision is: " + Arrays.toString(b));
 
     }
