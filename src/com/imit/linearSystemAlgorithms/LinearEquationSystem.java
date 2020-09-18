@@ -2,8 +2,9 @@ package com.imit.linearSystemAlgorithms;
 
 import com.imit.interfaces.EquationSystem;
 
-// TODO: Предусмотреть в методе addLineByCoefficient, (для условия внутри)
-//      что это может быть вещественный ноль (или не надо?)
+import static com.imit.mathFunctions.StandartMathFunctions.isEqual;
+
+// TODO: Разобрать возможные ошибки, выбрасываемые программой и обработать
 public class LinearEquationSystem implements EquationSystem {
 
     protected double[][] equationSystem;
@@ -80,7 +81,7 @@ public class LinearEquationSystem implements EquationSystem {
     public void addLineByCoefficient(int i, int j, double coefficient) {
 
         for (int k = 0; k < this.equationSystem[i].length; k++) {
-            if (this.equationSystem[i][k] == 0){
+            if (isEqual(this.equationSystem[i][k], 0)){
                 continue;
             }
             this.equationSystem[j][k] += this.equationSystem[i][k]*coefficient;

@@ -6,6 +6,8 @@ import com.imit.linearSystemAlgorithms.LinearEquationSystem;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static com.imit.mathFunctions.StandartMathFunctions.printMatrix;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -36,13 +38,6 @@ public class Main {
         }
 
         return new LinearEquationSystem(matrix);
-    }
-
-    public static void printMatrix(double[][] matrix){
-        for ( double[] arr:
-             matrix) {
-            System.out.println(Arrays.toString(arr));
-        }
     }
 
 }
