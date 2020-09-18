@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 // TODO: Создать дополнительный метод, для вывода в консоль последовательности преобразований матрицы при решении
 // TODO: Переделать метод решения, под задание в домике
+// TODO: Предусмотреть случай, когда система несовместна
 public class GaussAlgorithm implements Algorithm {
 
     private LinearEquationSystem system;
