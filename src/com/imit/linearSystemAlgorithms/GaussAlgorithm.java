@@ -4,7 +4,6 @@ import com.imit.interfaces.Algorithm;
 
 import static com.imit.mathFunctions.StandartMathFunctions.isEqual;
 
-// TODO: Переделать метод решения, под задание в домике
 // TODO: Предусмотреть случай, когда система несовместна (ошибка решения)
 // TODO: Разобрать возможные ошибки, выбрасываемые программой и обработать
 public class GaussAlgorithm implements Algorithm {
@@ -41,23 +40,24 @@ public class GaussAlgorithm implements Algorithm {
     private void doAlgorithmForward(){
         for (int i = 0; i < this.numberOfVariables; i++) {
 
-            // Priority line selection
-            // TODO: Put your code here :)
-
-            // Checking the main element and repositioning if required
-            if (isEqual(this.system.equationSystem[i][i], 0)){
-                for(int j = i+1; j < this.numberOfVariables; j++){
-                    if (!isEqual(this.system.equationSystem[j][i], 0)){
-                        this.system.swapLines(i, j);
-                        if (this.isSolutionProcessDisplayed){
-                            System.out.println("Swap lines: ");
-                            printSlae();
-                        }
-                        break;
-                    }
+            // Priority line selection in column
+            int maxElementLineNumber = i;
+            double maxValue = Math.abs(this.system.equationSystem[i][i]);
+            for (int j = i+1; j < this.numberOfVariables; j++){
+                if (Math.abs(this.system.equationSystem[j][i]) > maxValue){
+                    maxElementLineNumber = j;
+                    maxValue = Math.abs(this.system.equationSystem[j][i]);
                 }
             }
-            // Converting to triangular matrix
+            if (maxElementLineNumber != i){
+                this.system.swapLines(i, maxElementLineNumber);
+                if (this.isSolutionProcessDisplayed){
+                    System.out.println("Swap lines: ");
+                    printSlae();
+                }
+            }
+
+            // Converting to triangular matrix (for i column)
             for (int j = i + 1; j < this.numberOfVariables; j++) {
                 if (isEqual(this.system.equationSystem[j][i], 0)){
                     continue;

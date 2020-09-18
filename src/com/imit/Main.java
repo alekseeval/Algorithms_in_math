@@ -1,7 +1,6 @@
 package com.imit;
 
 import com.imit.interfaces.Algorithm;
-import com.imit.interfaces.EquationSystem;
 import com.imit.linearSystemAlgorithms.GaussAlgorithm;
 import com.imit.linearSystemAlgorithms.LinearEquationSystem;
 
